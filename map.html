@@ -1,0 +1,195 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=drawing" type="text/javascript"></script>
+<style type="text/css">
+#map {
+  height: 100%;
+}
+
+h2 {
+  margin: 0px;
+}
+
+#reference, #reference-bkg {
+  /*display:none;*/
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 160px;
+  height: 220px;
+  border: 1px solid #AAA;
+  padding: 10px 10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;  
+}
+
+#reference-bkg {
+  background-color: #AAA; 
+  opacity: 0.5; 
+}
+
+.cantidad .dot{
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  background-color: #000;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.ref {
+  float:right;
+  width: 125px;
+  height: 19px;
+  line-height: 19px;
+  text-align: left;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.uno {
+  margin-left: 5px;
+  height: 9px;
+  width: 9px;
+}
+
+.dos {
+  margin-left: 3px;
+  height: 13px;
+  width: 13px;
+}
+
+.tres {
+  margin-left: 2px;
+  height: 15px;
+  width: 15px;
+}
+
+.cinco {
+  height: 19px;
+  width: 19px;
+}
+
+ul.cantidad {
+  margin-top: 5px;
+}
+
+ul {
+  padding: 0 0 0 10px;
+  margin: 15px 0px;
+}
+
+li {
+  list-style: none;
+  margin: 2px 0px;
+  padding: 0px;
+  line-height: 19px;
+  height: 19px;
+}
+
+.tipo .dot{
+  background-color: #000;
+  display: inline-block;
+  margin: 3px 3px;
+  height: 13px;
+  width: 13px;
+  border: 1px solid #000;
+}
+
+.tipo .dot.campana {
+  background-color: #93bdcb;
+}
+
+.tipo .dot.alveolo {
+  background-color: #66FF00;
+}
+
+.tipo .dot.hachaT {
+  background-color: #fef129;
+}
+
+.tipo .dot.mango {
+  background-color: #FF6600;
+}
+
+.tipo .ref {
+  height: 18px;
+  line-height: 23px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+  $(function() {
+
+    var 
+    user  = "ggluzman",
+    table = "prueba_copy";
+    lat   = -28.317269,
+    lng   = -66.167905,
+    zoom  = 7;
+
+    // Define the initial options
+    var cartodbMapOptions = {
+      zoom: zoom,
+      center: new google.maps.LatLng( lat, lng ),
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scaleControl: true
+    }
+
+    // Initialize the map
+    var map = new google.maps.Map(document.getElementById("map"),cartodbMapOptions);
+
+    // Define the map styles
+    var map_style = [{
+      stylers: [{ saturation: -65 }, { gamma: 1.52 }] }, {
+      featureType: "administrative", stylers: [{ saturation: -95 }, { gamma: 2.26 }] }, {
+      featureType: "water", elementType: "labels", stylers: [{ visibility: "on" }] }, {
+      featureType: "administrative.locality", stylers: [{ visibility: 'on' }] }, {
+      featureType: "road", stylers: [{ visibility: "simplified" }, { saturation: -99 }, { gamma: 2.22 }] }, {
+      featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }, {
+      featureType: "road.arterial", stylers: [{ visibility: 'off' }] }, {
+      featureType: "road.local", elementType: "labels", stylers: [{ visibility: 'off' }] }, {
+      featureType: "transit", stylers: [{ visibility: 'off' }] }, {
+      featureType: "road", elementType: "labels", stylers: [{ visibility: 'off' }] }, {
+      featureType: "poi", stylers: [{ saturation: -55 }]
+    }];
+
+    // Set the style
+    map.setOptions({ styles: map_style });
+
+    // Define the layer
+    var cartoDBLayer = {
+      getTileUrl: function(coord, zoom) {
+        console.log("https://" + user + ".cartodb.com/tiles/" + table + "/" + zoom + "/" + coord.x + "/" + coord.y + ".png");
+        return "https://" + user + ".cartodb.com/tiles/" + table + "/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+      },
+      tileSize: new google.maps.Size(256, 256)
+    };
+
+    // Add the CartoDB tiles
+    map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType(cartoDBLayer));
+
+  });
+
+</script>
+
+<div id="map"></div>
+<div id="reference-bkg"></div>
+<div id="reference">
+<h2>Referencias</h2>
+  <ul class="cantidad">
+    <li><span class="dot uno"></span><span class="ref">Un artefacto</span></li>
+    <li><span class="dot dos"></span><span class="ref">Dos artefactos</span></li>
+    <li><span class="dot tres"></span><span class="ref">Tres artefactos</span></li>
+    <li><span class="dot cinco"></span><span class="ref">Cinco artefactos</span></li>
+  </ul>
+  <ul class="tipo">
+    <li><span class="dot campana"></span><span class="ref">Campana</span></li>
+    <li><span class="dot alveolo"></span><span class="ref">Hacha con Alv&eacute;olo</span></li>
+    <li><span class="dot hachaT"></span><span class="ref">Hacha en T</span></li>
+    <li><span class="dot mango"></span><span class="ref">Hacha con Mango</span></li>
+  </ul>
+</div>

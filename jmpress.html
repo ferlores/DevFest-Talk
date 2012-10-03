@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jmpress.js | simple example</title>
+
+  <meta name="description" content="jmpress.js is a jQuery plugin to build a website on the infinite canvas">
+  <meta name="author" content="Kyle Robinson Young @shama & Tobias Koppers @sokra" />
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+  <link href="css/jmpress.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations.css" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jmpress.js"></script>
+</head>
+<body>
+
+<div id="simple">
+      <div id="main" class="step" data-x="-3000" data-y="-2500" data-scale="3">
+        <h1 class="red">Javascript Attacks!!</h1>
+        <h3 class="sub">The dumb toy-language is conquering<br>the world. What we should do?!</h3>
+        <h3 class="author">Fernando Lores<br>@ferlores</h3>
+        <img class="ovni" src="./img/ovni.png">
+        <img class="googleDev" src="./img/DevFestNinja.png">
+      </div>
+
+      <div id="agenda" class="step slide agenda" data-x="-1500" data-y="-2400" data-scale="9">
+          <h1 class="dark-blue">Let's talk about</h1>
+          <h2 class="black">Browser</h2>
+          <h2 class="black">Mobile</h2>
+          <h2 class="black">Server</h2>
+          <h2 class="black">Desktop</h2>
+      </div>
+      
+      <div id="rule" class="step slide browser" data-x="-3500" data-y="-500">
+          <h1>Rule of the Least Power </h1>
+          <q>Computer Science spent the <span class="dark-blue bold big">last forty years</span><br>
+            making languages as <span class="green bold big">powerful as possible</span>.<br>
+
+          <span class="spacer"></span>The <span class="red bold big">less powerful</span> the language, the <br>
+
+          <span class="spacer1"></span><span class="big bold black">more you can do</span> with the data stored in it.</q>
+          <p class="black bold right">- Tim Berners-Lee, W3C, Feb 2006</p>
+
+          <div class="notes">
+            If you write it in a simple declarative from, anyone can write a program to analyze it.
+              Ejemplo: wheater data, RDF vs java applet
+          </div>
+      </div>
+
+      <div id="rule2" class="step slide" data-x="-3500" data-y="0">
+        <h1 class="red">First Corollary</h1>
+        <span class="left">Any application that can be written in</span>
+        <span class="red big bold right">JavaScript</span>
+        <h3 class="left">will eventually be written in</h3>
+        <p class="left black bold">- Jeff Atwood&#39;s Law, www.codinghorror.com, 2007</p>
+        <div class="notes">
+              Popularidad: todos los programadores web usaron alguna vez js 
+              http://www.codinghorror.com/blog/2007/07/the-principle-of-least-power.html
+          </div>
+      </div>
+
+      <div id="scares" class="step" data-x="-3500" data-y="0" data-z="500" data-rotate-z="45">
+        <img src="./img/scares.jpg">
+      </div>
+
+      <div id="pain" class="step" data-x="-3500" data-y="0">
+        <img src="./img/js-pain.jpg">
+      </div>
+      
+      <div id="html5" class="step slide" data-x="-4600" data-y="-1000" data-scale="2" data-bg="#89a661">
+
+        <h1 class="black">HTML</h1><h1 class="red five" data-jmpress="zoom">5</h1>
+        <h2 class="yellow" data-jmpress="drive-up">New Markup + APIs!</h2>
+          <div class="notes">
+              HTML5: W3C Jan 2008
+
+              Nuevamente javascript fue la opcion natural para estas apis
+              Standar para consumir APIs
+          </div>
+      </div>
+
+      <div id="html5bis" class="step slide" data-x="-4600" data-y="0" data-scale="2" data-bg="#89a661" data-next=".agenda">
+
+        <h1 class="css3 left black">CSS<span data-jmpress="drive-up" class="blue">3</span></h1>
+
+        <div data-jmpress="warp-left" class="general right">
+          <h1 class="black">GENERAL PURPOSE</h1>
+          <div class="blue">Online/offline+File Api+LocalStorage</div>
+          <div class="blue">Drag n' Drop+Progress Bar+PushState</div>
+        </div>
+
+        <div class="media left"> 
+          <h1 data-jmpress="warp-down" class="left black">MEDIA</h1>
+          <div data-jmpress="expand" class="left blue bold">SVG+Canvas+WEBGL</div>
+          <div data-jmpress="expand" class="left blue bold">Audio+Video</div>
+        </div>
+
+        <div data-jmpress="zoom" class="middle left">
+          <h1 class="geol left yellow">Geolocalization</h1>
+          <h1 class="webs right yellow">Websockets</h1>
+        </div>
+        
+        <div class="notes">
+              Standar para consumir APIs
+              - HTML5
+                - CSS3
+                    *presentacion como ejemplo
+                - pushState / drag&drop / progress bar / File Api 
+                    * ?
+                - Audio/Video
+                    * ejemplo webcam
+                - Online/offline - LocalStorage
+                - Geolocalization
+                - Graficos: SVG/Canvas/WEBGL
+                - Websockets
+            
+            philoDb / easel.js / Trhee.js
+
+            * Webcam http://neave.github.com/face-detection/
+            * File API simple: http://html5demos.com/file-api-simple
+            * Geolocalization: http://html5demos.com/geo
+            * Drag anything http://html5demos.com/drag-anything
+            * Progress Bar: upload http://html5demos.com/dnd-upload
+            CartoDB - Google maps
+            * Pixastic: http://www.pixastic.com/
+            http://en.wikipedia.org/wiki/HTML5
+        </div>
+      </div>
+
+      <div id="cordova" class="step slide" data-x="700" data-y="-2600">
+        <h1>Apache Cordova - PhoneGap</h1>
+        <img src="./img/cordova.png" alt="PhoneGap">
+        <div class="notes">
+
+          nativas vs web
+          wrapper multiplataforma
+          aplicaciones nativas en JS!
+          Api para acceder al hardware: acelerometro, contactos, geoposicion, etc
+
+          PhoneGap Build had 23,000+ applications and 10,000+ users run through it as of July 2011. They were growing at 2,000 users a month for a few months consecutively leading up to July 2011... assuming they've had similar growth over the past 7 months, then they're probably at around 20-24,000 users and 50,000+ applications (on PhoneGap Build). No idea how many of these "applications" are functional or in use, but at least it's a number, I guess.
+          
+          Source: http://www.slideshare.net/AndreCharland/phone-gap-stats-growth
+
+        </div>
+      </div>
+
+      <div id="firefox" class="step slide" data-x="0" data-y="-2600" data-next=".agenda">
+       <h1>Boot to Gecko - Firefox OS</h1>
+       <img src="./img/firefoxOS.png" alt="firefoxOS">
+      
+        <div class="notes">
+          - KERNEL LINUX QUE RENDERIZA HTML5 + APIS
+          - NO SE PUEDE INSTALAAR EN PHONES YET
+          - EMULADOR PARA PC
+
+          MIRAR TALK LXJS
+            http://rawkes.com/articles/there-is-something-magical-about-firefox-os
+        </div>
+      </div>
+
+      <div id="server" class="step slide" class="step slide" data-x="800" data-y="-1950">
+        <h2 class="italic black">In the far 2009 Ryan Dahl got an idea...</h2`>
+        <img src="./img/io-cost.png" alt="io-cost">
+      </div>
+
+      <div id="blocking" class="step slide" data-x="800" data-y="-1350">
+        <h1>Blocking vs Non-Blocking</h1>
+<pre><code>
+var result = db.query(&quot;select * from T&quot;);
+// do something with result
+</code></pre>
+<h3 class="red bold">VS</h3>
+<pre><code>
+db.query(&quot;select..&quot;, function (result) {
+   // use result
+});
+//execution continues
+</code></pre>
+
+          <div class="notes">
+              porque no fue asi antes:
+              cultural: rejected as too complex, 
+              infraestructura: C, C++, Java no tienen Fuciones anonimas
+          </div>
+      </div>
+
+      <div id="event-loop" class="step slide" data-x="800" data-y="-750">
+        <h1>Event loop - Single thread</h1>
+        <img src="./img/event-loop.gif" alt="event-loop">
+        <h1 class="red bold" data-jmpress="drive-down">NO MORE THREAD DEADLOCK! <div class="bigger" data-jmpress="zoom">\o/</div></h1>
+      </div>
+
+      <div id="event-loop2" class="step slide" data-x="800" data-y="-50">
+        <h1>Event loop - Single thread</h1>
+        <h3 class="dark-blue" data-jmpress="drive-left">More predictable app server memory usage</h3>
+        <h3 class="dark-blue" data-jmpress="drive-up">More concurrent requests, like Nginx vs Apache
+        <img src="./img/nginx.png" alt="nginx">
+        </h3>
+        </ul>
+          <div class="notes">
+              nginx v0.7.65
+              node v0.1.91
+              tornado v0.2 (python 2.6.4)
+              thin v1.2.7 (ruby 1.9.1-p376)
+          </div>  
+      </div>
+      <div id="v8" class="step slide" data-x="1600" data-y="0" data-scale="1" data-bg="#FF4242" data-rotate-y="45">
+        <img id="king" src="./img/browser-king.png">
+        <h1 class="yellow">Google V8</h1>
+
+        <div class="notes">
+          - First beta release on Sept 2008 for Windows
+          - Compile into machine code - no reiterpretation
+
+          - Better Garbage collector: precise pointer objects, incremental garbage collector, quick round-trips
+          
+            Great comic http://en.wikipedia.org/wiki/Google_Chrome
+            WATCH THIS!!!
+            http://blip.tv/jsconf/jsconf2012-vyacheslav-egorov-6141593
+            http://en.wikipedia.org/wiki/Google_Chrome
+            http://www.google.com/googlebooks/chrome/
+          </div>
+      </div>
+
+      <div id="v8-code" class="step slide" data-x="1600" data-y="400" data-bg="#FF4242" data-rotate-y="45">
+        <h1 class="yellow">Compile into machine code</h1>
+        <img class="comic" src="./img/machine-code.jpg" alt="Machine-code">
+      </div>
+
+      <div id="v8-gc" class="step slide" data-x="1600" data-y="1000" data-bg="#FF4242" data-rotate-y="45">
+        <h1 class="yellow">Better Garbage Collector</h1>
+        <img class="comic" src="./img/garbage.jpg" alt="Garbage">
+      </div>
+      
+      <div id="v8-fast" class="step slide" data-x="1600" data-y="1600" data-bg="#FF4242" data-rotate-y="45">
+        <img src="./img/benchmarks.png" alt="Machine-code">
+
+        <div class="right">
+          <h1 class="yellow">It is fast!</h1>
+          <h1 class="yellow">It is fast!</h1>
+          <h1 class="yellow">It is fast!</h1>
+          <h1 class="yellow">It is fast!</h1>
+          <h1 class="black">It is fast!</h1>
+          <h1 class="yellow">It is fast!</h1>
+        </div>
+        
+        <div class="notes">
+          Speed! - shootout.alioth.debian.org
+        </div>
+      </div>
+
+      <div class="step slide" data-x="1700" data-y="1000" data-rotate-y="-90">
+          <img src="./img/node_turtle.png" alt="Turtle">
+      </div>
+
+      <div id="cool" class="step slide" data-x="1800" data-y="300" data-rotate-y="-180">
+        <div class="bold black">why</div>
+        <h1 data-jmpress="drive-left" class="bold green">NODE</h1>
+        <div data-jmpress="drive-right" class="bold gray">is so</div>
+        <h1 data-jmpress="zoom" class="bold red">COOL?</h1>
+      </div>
+
+      <div id="RAD" class="step slide" data-x="1700" data-y="300" data-rotate-y="-90">
+          <h2 class="dark-blue">Rapid Application Development</h2>
+          <div data-jmpress="drive-right" class="easy red bold">EASY</div>
+          <div data-jmpress="drive-left" class="to black bold">to learn</div>
+          <div data-jmpress="drive-left" class="to black bold">to develop</div>
+          <div data-jmpress="drive-left" class="to black bold">to deploy</div>
+          <div data-jmpress="zoom" class="fun bold"><span class="red">F</span><span class="dark-blue">U</span><span class="green">N</span><span class="yellow">!</span></div>
+          
+<pre data-jmpress="drive-up"><code>
+// Webserver code
+var http = require(&#39;http&#39;);
+http.createServer(function (req, res) {
+  res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+  res.end(&#39;Hello World\n&#39;);
+}).listen(80, &#39;127.0.0.1&#39;);
+</code></pre>
+          
+          <img data-jmpress="expand" src="./img/lol-face.jpg" alt="LOL">
+      </div>
+
+      <img id="npm" src="./img/npm.png" alt="NPM" class="step slide" data-x="2500" data-y="300" data-rotate-y="-180">
+      
+      <img src="./img/github.png" alt="GitHub" class="step slide" data-x="2500" data-y="300">
+
+      <div id="nosql" class="step slide" data-x="2500" data-y="900">
+        <h1 data-jmpress="warp-right">Plays nice with</h1>
+        <div class="red bold">NO-SQL</div>
+        <h2 data-jmpress="expand" class="dark-blue">Doc &laquo;-&raquo; JSON</h2>
+<pre data-jmpress="drive-up"><code>
+{
+  _id : ObjectId(&quot;4e77bb3b8a3e000000004f7a&quot;),
+  when : Date(&quot;2011-09-19T02:10:11.3Z&quot;,
+  author : &quot;alex&quot;,
+  title : &quot;No Free Lunch&quot;,
+  text : &quot;This is the text of the post.  It could be very long.&quot;,
+  tags : [ &quot;business&quot;, &quot;ramblings&quot; ],
+  votes : 5,
+  voters : [ &quot;jane&quot;, &quot;joe&quot;, &quot;spencer&quot;, &quot;phyllis&quot;, &quot;li&quot; ],
+  comments : [
+    { who : &quot;jane&quot;, when : Date(&quot;2011-09-19T04:00:10.112Z&quot;),
+      comment : &quot;I agree.&quot; },
+    { who : &quot;meghan&quot;, when : Date(&quot;2011-09-20T14:36:06.958Z&quot;),
+      comment : &quot;You must be joking.  etc etc ...&quot; }
+  ]
+}</code></pre>
+        <div class="notes">
+              JSON formato de intercambio que reemplaza XML
+              Naturaleza dinamica de objectos - loose typing
+              Funciones Map-Reduce
+          </div>
+      </div>
+
+      <div id="real-time" class="step slide" data-x="1800" data-y="900">
+        <h1 class="real">Real-time applications</h1>
+        <h2 data-jmpress="expand" class="dark-blue websockets">Websockets</h2>
+        <h3 data-jmpress="warp-left" class="blue left">bi-directional</h3>
+        <h3 data-jmpress="warp-right" class="blue right">full-duplex</h3>
+        <h2 data-jmpress="zoom" class="TCP red">single TCP connection</h2>
+
+        <div class="notes">
+
+          - antes 15 minutos era una ventana de tiempo tolerable
+          hoy 5 segundos es tarde
+
+          - webpages real-time hace que los usuarios se queden mas
+
+          kickstarter:
+          websockets cs long pooling 
+          manera eficiente de implementarlos
+          
+          mostrar now.jitsu.com
+        </div>
+      </div>
+
+      <div id="socketio" class="step slide" data-x="1800" data-y="1500">
+        <img src="./img/socketio.png">
+        <div class="notes">
+          Socket.io:
+          - full technology in modern browsers
+          - many fallback: long pooling, flash, etc
+          - works even on IE6
+
+          WebSocket
+          Adobe® Flash® Socket
+          AJAX long polling
+          AJAX multipart streaming
+          Forever Iframe
+          JSONP Polling
+
+          Supported browsers
+          Desktop
+          Internet Explorer 5.5+
+          Safari 3+
+          Google Chrome 4+
+          Firefox 3+
+          Opera 10.61+
+          Mobile
+          iPhone Safari
+          iPad Safari
+          Android WebKit
+          WebOs WebKit
+        </div>
+        
+      </div>
+
+      <div id="cloud" class="step slide" data-x="1100" data-y="2100" data-scale="3">
+        <h1 class="green">Cloud <span data-jmpress="fade" class="title">freemium options</span></h1>
+        <div data-jmpress="fade">
+          nodejs bigest sponsor <span data-jmpress="expand" class="dark-blue bold">Joyent</span>,
+          <span data-jmpress="expand" class="dark-blue heroku bold">Heroku</span> early bringing node to the cloud,
+          allow websockets <span data-jmpress="expand" class="dark-blue bold">Nodejitsu</span>, 
+          <span data-jmpress="expand" class="dark-blue bold">Cloud9</span> includes an online IDE for dev,<br>
+          nodejs as an option <span data-jmpress="expand" class="dark-blue bold">Engine Yard</span>.
+        </div>
+      </div>
+
+      <div id="info" class="step slide" data-x="1100" data-y="8000">
+          <img src="./img/infografia.jpg" alt="Infografia">
+          <div class="notes" >
+            NODE: fast develop (RAD), real time apps, non-blocking, high-concurrency, NPM, Github,
+          </div>
+      </div>
+      <div id="" class="step slide" data-x="1100" data-y="8420"></div>
+      <div id="" class="step slide" data-x="1100" data-y="8850"></div>
+      <div id="" class="step slide" data-x="1100" data-y="9200"></div>
+      <div id="" class="step slide" data-x="1100" data-y="9650"></div>
+      <div id="" class="step slide" data-x="1100" data-y="10040"></div>
+      <div id="" class="step slide" data-x="1100" data-y="10310"></div>
+      <div id="" class="step slide" data-x="1100" data-y="10590"></div>
+      <div id="" class="step slide" data-x="1100" data-y="10840"></div>
+      <div id="" class="step slide" data-x="1100" data-y="11200"></div>
+      <div id="" class="step slide" data-x="1100" data-y="11700"></div>
+      <div id="info-last" class="step slide" data-x="1100" data-y="12000" data-next=".agenda"></div>
+    
+
+      <div id="desktop" class="step slide" data-x="4000" data-y="-300" data-rotate-y="180" data-scale="4">
+        <h1 data-jmpress="warp-left" class="red">Gnome3</h1>
+        <h1 data-jmpress="warp-right" class="dark-blue">Windows 8</h1>
+        <h1 data-jmpress="warp-up" class="green">Appjs</h1>
+
+        <div class="notes">
+          1+1 
+
+          global.get_window_actors()
+
+          global.get_window_actors().forEach(function (w) { Tweener.addTween(w, { time: 3, transition: 'easeOutQuad', scale_x: 0.3, scale_y: 0.3 })})
+
+          global.get_window_actors().forEach(function (w) { w.set_scale(1, 1) })
+
+          global.get_window_actors()[0]
+
+          it.scale_x
+
+          - Desktop
+            - Gnome3
+              * mostrar consolita
+            - Microsoft 8
+            - appjs
+        </div>
+      </div>
+
+      <div id="everywhere" class="step slide" data-x="4000" data-y="-300" data-rotate-y="180" data-scale="4">
+        <h1>Can you see it?</h1>
+        <img data-jmpress="fade" src="./img/everywhere.jpg" alt="everywhere">
+      </div>
+
+      <div id="all-javascript" class="step slide" data-x="4000" data-y="-300" data-bg="#fff">
+        <h1>And so What?</h1>
+        <img data-jmpress="warp-left" src="./img/all-javascript.jpg" alt="all-javascript">
+      </div>
+
+      <div id="no" class="step" data-x="4000" data-y="-300" data-scale="5" data-bg="#fff">
+        <img src="./img/no.jpg">
+        <div class="notes">
+          - no es javascript por ser javascript. Son las circunstancias
+          - otros lenguajes que compilan a javascript: 
+            - no van a ser tan facil desplazarlo
+            - javascript no es feo, solo necesita un poco de carinio
+        </div>
+      </div>
+
+  <!-- ############################################################################## -->
+      <div id="questions" class="step slide" data-x="-1000" data-y="-1500">
+        <img src="./img/questions.jpg">
+        <div class="notes">
+          EXTRAS: http://www.chromeexperiments.com/
+        </div>
+      </div>    
+
+      <div id="overview" class="step" data-x="1500" data-y="-2200" data-scale="14">
+          <h1 class="">THANKS</h1>
+          <!-- http://dannorth.net/2011/12/19/the-rise-and-rise-of-javascript/ -->
+      </div>
+  </div>
+
+</div>
+
+<script src="js/marked.js"></script>
+<script src="js/markdown.js"></script>
+<script type="text/javascript">
+$(function() {
+  $('#simple').jmpress({
+    viewPort: {
+      height: 600,
+      width: 800,
+    },
+    /*hash: { use: false }*/
+  });
+
+  // routes for agenda slide
+  $('#main').on('enterStep', function (ev) {
+    var next = $('.agenda').near('.step')[0].id;
+    $("#simple").jmpress("route", [".agenda", "#" + next]);
+  });
+
+  $('.step[data-next=".agenda"]').on('enterStep', function (ev) {
+    var next = $(this).near('.step')[0].id;
+    $("#simple").jmpress("route", [".agenda", "#" + next]);
+  });
+
+/*
+  $('.step').on('enterStep', function (ev) {
+    var el = $(ev.target);
+        body = $('body');
+    if (el.hasClass('browser')) {
+      body.css('backgroundColor', '#e18dd0');
+    } else if (el.hasClass('server')) {
+      body.css('backgroundColor', '#0F0');
+    } else if (el.hasClass('mobile')) {
+      body.css('backgroundColor', '#00F');
+    } else if (el.hasClass('desktop')) {
+      body.css('backgroundColor', '#FF0');
+    } else if (el.hasClass('ring')) {
+      body.css('backgroundColor', '#0FF');
+    } else {
+      body.css('backgroundColor', '#ddd');
+    }
+
+  });*/
+});
+
+/*$("#simple").jmpress("toggle", 27, {
+  // jmpress options
+}); // Bind escape key
+*/</script>
+
+</body>
+</html>

@@ -1,0 +1,1087 @@
+/** GENERAL **/
+body {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  min-height: 740px;
+  background-color: #f1f2ec;
+  color: #797979;
+}
+
+/** STEP STYLES **/
+.slide {
+  height: 500px;
+  width: 700px;
+  min-height: 500px;
+
+/*  background-color: #F4FAD2;*/
+/*  padding: 40px 60px;
+  border-radius: 10px;
+*/
+/*  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);*/
+/*  border: 1px solid rgba(0, 0, 0, .3);*/
+
+
+  /*text-shadow: 2px 2px 2px rgba(0, 0, 0, .1);*/
+
+}
+
+.step {
+  font-size: 1em;
+  display: block;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -ms-box-sizing:     border-box;
+  -o-box-sizing:      border-box;
+  box-sizing:         border-box;
+
+  -webkit-transition: opacity 1s;
+  -moz-transition:    opacity 1s;
+  -ms-transition:     opacity 1s;
+  -o-transition:      opacity 1s;
+  transition:         opacity 1s;
+}
+
+/* fade out inactive slides */
+.step:not(.active) {
+  opacity: 0;
+}
+
+/** NOT SUPPORTED STYLES **/
+.not-supported .step {
+  position: relative;
+  opacity: 1;
+  margin: 20px auto;
+}
+
+.notes {
+  display: none;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 5em;
+  color: black;
+}
+h2 {
+  font-size: 4em;
+}
+h3 {
+  font-size: 3em;
+}
+h4 {
+  font-size: 2em;
+}
+h5 {
+  font-size: 1em;
+}
+
+q {
+  font-size: 3em;
+}
+
+.blue {
+  color: #89CCBD;
+}
+
+.red {
+  color: #FF4242;
+}
+
+.dark-blue {
+  color: #379bbb;
+}
+
+.green {
+  color: #89a661;
+}
+
+.violet {
+  color: #A6929F;
+}
+
+.gray {
+  color: #797979;
+}
+
+.yellow {
+  color: #d7ec5e;
+}
+
+.black {
+  color: #000;
+}
+
+.white {
+  color: #FFF;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.right {
+  text-align: right;
+  float: right;
+}
+
+.left {
+  text-align: left;
+  float: left;
+}
+
+.both {
+  clear both;
+}
+
+.big{
+  font-size: 1.8em;
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.under {
+  text-decoration: underline;
+}
+
+#main, img.step {
+  position: relative;
+}
+
+#main {
+  height: 500px;
+  width: 700px;
+  min-height: 500px;
+  opacity: 1;
+}
+
+#main h1 {
+  font-family: 'Jolly Lodger';
+  font-size: 10em;
+  position: absolute;
+  top: -40px;
+  left: -160px;
+  width: 1200px;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  padding: 0;
+}
+
+#main .sub {
+  /*font-family: 'Jolly Lodger';*/
+  margin: 0;
+  padding: 0;
+  width: 650px;
+  text-align: right;
+  position: absolute;
+  top: 185px;
+  left: -130px;
+  border-bottom: 0;
+}
+
+#main .author {
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 342px;
+  left: 516px;
+  z-index: 100;
+  width: 300px;
+  text-align: center;
+  color: black;
+}
+
+#main h4 {
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#main .ovni {
+  position: absolute;
+  top: 145px;
+  left: 180px;
+}
+
+#main:not(.active) .googleDev {
+  display: none;
+}
+
+#main .googleDev {
+  width: 400px;
+  position: absolute;
+  bottom: -43px;
+  left: -175px;
+}
+
+#agenda {
+  text-align: right;
+  z-index: -100;
+  text-transform: uppercase;
+}
+
+#agenda h1{
+  margin-top: -30px; 
+  font-size: 8em;
+  line-height: 110px;
+}
+
+#agenda h2{
+  line-height: 120px;
+  font-size: 6em;
+}
+
+#caution h1{
+  text-align: center;
+  font-size: 9.5em;
+}
+
+#caution h2{
+  width: 420px;
+  text-align: center;
+}
+
+#caution img{
+  margin: -20px 0 -10px 0;
+  width: 420px;
+}
+
+#rule q {
+  font-size: 2.1em;
+}
+
+#rule h1 {
+  margin-bottom: 40px;
+}
+
+#rule p {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+#rule .spacer {
+  margin-left: 130px;
+}
+
+#rule .spacer1 {
+  margin-left: 50px;
+}
+
+#rule2 span{
+  font-size: 3em;
+}
+
+#rule2 .big{
+  font-size: 5em;
+}
+
+#rule2 h1 {
+  margin-bottom: 60px;
+}
+
+#rule2 p {
+  margin-top: 60px;
+  font-size: 2em;
+}
+
+dd{
+  margin: 0 0 10px 70px;
+}
+
+dt {
+  width: 70px;
+  float: left;
+  clear: left;
+}
+
+dl {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+ul {
+  font-size: 3em;
+}
+
+#history h1 {
+  margin-top: -30px; 
+}
+
+#history p {
+  font-size: 2.3em;
+  margin-bottom: 0; 
+}
+
+#history .firma {
+  margin: 0;
+
+}
+
+#dhtml h1 {
+  margin-top: -30px; 
+}
+
+#dhtml li[data-jmpress="drive-right"] {
+  float: right;
+  width: 600px;
+}
+
+#scares img {
+  height: 600px;
+}
+
+#pain img {
+  height: 600px;
+}
+
+#ajaxr h1 {
+  margin: -30px 0 20px 0;  
+}
+
+#ajaxr .left {
+  width: 180px;
+  font-size: 2em;
+}
+
+#ajaxr .left.break {
+  font-size: 2em;
+  width: 520px;
+}
+
+#ajaxr .bigger .left{
+  margin: 40px 0;
+  font-size: 3em;
+}
+
+#google .google {
+  margin: 70px 0 0 120px;
+  font-size: 15em;
+  font-weight: 800;
+
+}
+
+#google .google.will-rotate {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+#google .google.do-rotate {
+  top: 40px;
+  left: -450px;
+}
+
+#google .google div {
+  font-size: 50px;
+  margin: -65px 0 0 -120px;
+  width: 200px;
+}
+
+#google .higher {
+  margin: -350px 0 0 150px;
+  font-size: 4em;
+  font-weight: 800;
+  width: 700px;
+}
+
+#google .higher div {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+#frameworks h1 {
+  margin-left: 100px;
+}
+
+#frameworks h2 {
+  padding: 0;
+  margin: 0 0 -70px 0;
+  font-size: 12em;
+}
+
+#frameworks .prototype {
+  font-size: 9em;
+}
+
+#frameworks .content {
+  width: 500px;
+  height: 200px;
+  margin-left: 100px;
+}
+
+#frameworks .jquery {
+  position: relative;
+  left: -50px; 
+  top: -300px;
+  font-size: 20em;
+  width: 600px;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform:    rotate(-15deg);
+  -ms-transform:     rotate(-15deg);
+  -o-transform:      rotate(-15deg);
+  transform:         rotate(-15deg);
+}
+
+#html5 {
+  width: 850px;
+}
+
+#html5  h1{
+  width: 620px;
+  margin: -50px 0;
+  font-size: 25em;
+  float: left;
+}
+
+#html5 .five{
+  width: 150px;
+  margin-top: -150px;
+  font-size: 35em;
+}
+
+#html5  h2{
+  float: right;
+  font-size: 6.3em;
+  width: 840px;
+  margin-top: -140px;
+  text-transform: uppercase;
+}
+
+#html5bis {
+  text-transform: uppercase;
+  width: 1000px;
+}
+
+#html5bis h1{
+  line-height: 1em;
+  font-weight: 800;
+}
+
+#html5bis .css3 {
+  margin-top: -30px;
+  font-size: 14.5em;
+}
+
+#html5bis .general {
+}
+
+#html5bis .general h1 {
+  font-size: 8em;
+  margin-bottom: -20px;
+}
+
+#html5bis .general div {
+  font-size: 3.3em;
+  line-height: 50px;
+}
+
+#html5bis .middle{
+  margin-top: -290px;
+  width: 1000px;
+}
+
+#html5bis .geol, #html5bis .webs{
+  font-size: 6.55em;
+}
+
+#html5bis .media h1{
+  font-size: 12em;
+}
+
+#html5bis .media div {
+  font-size: 5em;
+  line-height: 60px;
+  width: 600px;
+  margin-top: 22px;
+  margin-left: 22px;
+}
+
+#html5bis .media {
+  margin-top: 100px;
+}
+
+#framework .tags span{
+  font-size: 3em;
+  background-color: #BBB;
+  padding: 1px 3px;
+  margin: 50px 5px; 
+  border-radius: 10px;
+  line-height: 65px;
+  font-weight: 800;
+}
+
+#framework .tags{
+  width: 1050px;
+  margin: 30px 0 0 -150px; 
+}
+
+#framework .rest{
+  margin: -60px -150px 0 0;
+  font-size: 3.5em;
+  font-style: italic;
+  width: 500px;
+}
+
+#meter {
+  height: 550px;
+}
+
+#v8 h1 {
+  font-size: 15em;
+  width: 1000px;
+  margin-top: 100px;
+}
+
+#king {
+  position: absolute;
+  top: 159px;
+  left: 237px;
+  right: 30px;
+  width: 170px;
+}
+
+img.comic{
+  border-radius: 30px;
+  width: 750px;
+}
+
+#v8-code h1{
+  z-index: 999;  
+}
+
+#v8-fast {
+  width: 750px;
+}
+
+#v8-fast h1 {
+  font-size: 7em;
+  line-height: 100px;
+}
+
+#v8-fast .right {
+  margin-top: -50px;
+}
+
+#v8-fast img {
+  float: left;
+  height: 600px;
+  margin-top: -50px; 
+}
+
+#war img {
+  height: 500px 
+}
+
+#firefox img, #cordova img{
+  width: 700px;
+}
+
+
+#server {
+  width: 800px;
+}
+
+#server img {
+  width: 400px;
+  margin-top: 60px;
+  margin-left: 180px;
+}
+
+#blocking {
+  width: 800px;
+}
+
+#blocking pre{
+  font-size: 2em;
+  margin-left: 50px;
+}
+
+#blocking h3{
+  margin-left: 350px; 
+  margin-bottom: -40px;
+}
+
+#event-loop img{
+  width: 400px;
+  margin: 40px 0 0 100px;
+}
+
+#event-loop h1 {
+  width: 790px;
+  text-transform: capitalize;
+}
+
+#event-loop .bigger {
+  font-size: 3em;
+  position: relative;
+  top: -360px; 
+  left: 550px;
+  text-transform: lowercase;
+}
+
+#event-loop2 img{
+  width: 600px;
+  margin-left: 0px;
+}
+
+#cool h1 {
+  font-size: 20em;
+  line-height: 180px;
+  margin-left: 200px;
+}
+
+#cool div {
+  line-height: 60px;
+  font-size: 9em;
+}
+
+#RAD h2 {
+  margin-top: -30px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+#RAD .easy{
+  font-size: 17.8em;
+  float: left;
+  line-height: 210px;
+  margin-right: 10px;
+  z-index: 0;
+}
+
+#RAD .to{
+  font-size: 5em;
+  float: left;
+  text-transform: uppercase;
+  line-height: 70px;
+}
+
+#RAD .fun.has-zoom {
+  opacity: 0;
+}
+
+#RAD .fun {
+  font-size: 17.8em;
+  float: left;
+  line-height: 210px;
+  margin-top: -210px;
+  padding-left: 20px;
+  background-color: #f1f2ec;
+  width: 400px;
+  height: 230px;
+  z-index: 999;
+}
+
+#RAD img {
+  position: absolute;
+  top: 300px;
+  right: 50px;
+  width: 180px;
+  border-radius: 30px;
+}
+
+#RAD pre{
+  float: left;
+  clear: both;
+  font-size: 1.5em;
+}
+
+#nosql{
+  text-transform: uppercase;
+  float: left;
+}
+
+#nosql div{
+  font-size: 10em;
+  float: right;
+  margin-top: -97px;
+}
+
+#nosql h1{
+  font-size: 4.5em;
+  width: 370px;
+  line-height: 60px;
+}
+
+#nosql h2{
+  font-size: 4.5em;
+  width: 370px;
+  text-align: right;
+  line-height: 60px;
+}
+
+#nosql pre {
+  font-size: 1.4em;
+  text-transform: none;
+}
+
+#real-time .real{
+  font-size: 97px;
+  width: 800px;
+}
+
+#real-time h3{
+  margin-top: -35px;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-size: 5em;
+}
+
+#real-time h1{
+  text-transform: uppercase;
+  line-height: 60px;
+}
+ 
+#real-time .websockets{
+  text-transform: uppercase;
+  font-size: 11.5em;
+  margin-top: -30px;
+}
+
+#real-time .TCP{
+  text-transform: uppercase;
+  font-size: 101px;
+  margin-top: 90px;
+}
+
+#socketio img {
+  margin-left: -50px;
+}
+
+#comunity img {
+  height: 450px;
+}
+
+#comunity h1 {
+  text-transform: uppercase;
+}
+#comunity .events {
+  position: relative;
+  top:-480px;
+  left: 50px;
+  width: 700px;
+}
+
+#comunity .events div{
+  float: left;
+  height: 40px;
+  width: 150px;
+  font-size: 30px;
+  background-color: #AAA;
+  border-radius: 30px;
+  padding: 3px 15px;
+  font-weight: 800;
+  text-align: center;
+  margin: 15px 15px;
+  border: 5px solid #FF0000; 
+}
+
+#cloud {
+  width: 700px;
+}
+
+#cloud h1{
+  text-transform: uppercase;
+}
+
+#cloud div{
+  text-align: justify;
+  font-size: 3.5em;
+}
+#cloud span:not(.title){
+  text-transform: uppercase;
+  font-size: 1.5em;
+  line-height: 75px;
+}
+
+#info {
+  opacity: 1;
+}
+
+#info img {
+  width: 800px;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+#linkedin-mobile h1{
+  text-transform: uppercase;
+  margin-top: -40px;
+  margin-left: -70px;
+
+}
+
+#linkedin-mobile img{
+  position: relative;
+  top: -75px;
+  left: -90px;
+  width: 230px;
+}
+
+#linkedin-mobile .first{
+  margin-top: -60px; 
+}
+
+#linkedin-mobile div{
+  font-size: 2.4em;
+  width: 800px;
+  margin-left: -70px;
+}
+
+#linkedin-mobile strong{
+  text-transform: uppercase;
+  color: #000;
+}
+
+#linkedin-mobile code{
+  margin-top: 10px;
+  font-size: 1.7em;
+  text-align: right;
+  float: right;
+  font-weight: 800;
+  color: black;
+}
+
+
+#linkedin img{
+  width: 800px;
+  margin: -30px 0 0 -30px; 
+}
+
+#linkedin2 h1{
+  text-transform: uppercase;
+
+}
+
+#linkedin2 img{
+  width: 500px;
+  margin: 0 0 0 100px; 
+}
+
+#linkedin2 h2{
+  position: absolute;
+  top: 150px;
+  left: -135px;
+  font-size: 12em;
+}
+
+#bing h1{
+  margin-top: -40px;
+  text-transform: uppercase;
+}
+
+#bing div{
+  font-size: 3em;
+}
+
+#bing .title{
+  font-size: 7em;
+  margin-top: -30px;
+}
+
+#bing pre{
+  font-size: 0.8em;
+  font-weight: 800;
+  float: right;
+  text-align: right;
+  color: black;
+}
+
+#bingbg {
+  position: absolute;
+  left: -375px;
+  top: 200px;
+  z-index: 0;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform:    rotate(-90deg);
+  -ms-transform:     rotate(-90deg);
+  -o-transform:      rotate(-90deg);
+  transform:         rotate(-90deg);
+}
+
+#walmart h1{
+  text-transform: uppercase;
+}
+
+#walmart img{
+  position: absolute;
+  top: -40px;
+  left: -170px;
+  width: 160px;
+}
+
+#walmart div{
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  width: 700px;
+  margin-left: -30px;
+}
+
+#walmart .second{
+  text-align: right;
+  margin-left: 30px;
+  margin-top: -25px;
+  margin-bottom: 0px;
+}
+
+#walmart .signs {
+  position: relative;
+  left: 400px; 
+  top: -20px;
+}
+
+#itvlogo {
+  margin: 0px 0 -10px -5px;
+  width: 230px;
+}
+
+#itvimg {
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  width: 650px;
+}
+
+#persona img{
+  margin: 20px 0 0 0px; 
+  width: 750px;
+}
+
+#persona div{
+  font-size: 3.5em;
+  position: relative;
+  top: -325px;
+  left: 100px;
+  text-transform: uppercase;
+  width: 640px;
+  line-height: 50px;
+  text-align: right;
+}
+
+#yahoo h3{
+  text-transform: uppercase;
+  margin-right: 40px;
+}
+
+#yahoo img{
+ width: 700px;
+ margin: 0px 0 0 -10px; 
+}
+
+#voxer img, #voxer2 img {
+ width: 850px;
+ margin: 0px 0 0 -70px; 
+}
+
+#trello img{
+ height: 480px;
+ margin: 20px 0 0 -153px; 
+}
+
+#companies .cc{
+  width: 800px;
+  margin-left: -190px; 
+}
+
+#companies span{
+  font-size: 7em;
+  text-transform: uppercase;
+  margin: 0 10px;
+  font-weight: 800;
+}
+
+#companies h1 {
+  text-transform: uppercase;
+  font-size: 6em;
+  width: 1000px;
+}
+
+#companies .row {
+  width: 800px;
+  border: 1px solid #000;
+}
+
+#companies .total {
+  width: 1800px;
+  text-transform: uppercase;
+  font-size: 13.5em;
+  font-weight: 800;
+  position: relative;
+  top: -500px;
+  left: -190px;
+  line-height: 170px;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform:    rotate(-10deg);
+  -ms-transform:     rotate(-10deg);
+  -o-transform:      rotate(-10deg);
+  transform:         rotate(-10deg);
+}
+
+#no img, #salary1 img, #salary2 img, #not-bad img{
+  height: 600px;
+}
+
+#everywhere img, #all-javascript img {
+  margin-top: -20px;
+  margin-left: 60px;
+  height: 440px;
+}
+
+#everywhere h1, #all-javascript h1 {
+  margin-left: 60px;
+  width: 1000px;
+  margin-top: -50px;
+  text-transform: uppercase;
+  font-size: 8em;
+}
+
+#ready {
+  padding-left: 30px;
+  text-transform: uppercase;
+}
+
+#ready span{
+  font-size: 9em;
+  text-transform: uppercase;
+  line-height: 50px;
+}
+
+#ready h1{
+  font-size: 15em;
+  margin-top: -50px;
+  line-height: 250px;
+}
+
+#ready h2{
+  margin-top: 55px;
+  font-size: 5.3em;
+  margin-left: 0px;
+}
+
+#questions img{
+  height: 500px;
+}
+/************************/
+
+#desktop h1 {
+  text-transform: uppercase;
+  font-size: 12em;
+  line-height: 170px;
+}
+
+#desktop {
+  text-align: center;
+}
+
+#overview h1 {
+  font-size: 15em;
+  margin-left: 300px; 
+}

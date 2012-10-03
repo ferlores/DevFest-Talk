@@ -1,0 +1,29 @@
+- Browser
+  - HTML5
+    - CSS3
+        *presentacion como ejemplo
+    - pushState / drag&drop / progress bar / File Api 
+        * ?
+    - Audio/Video
+        * ejemplo webcam
+    - Online/offline - LocalStorage
+    - Geolocalization
+    - Graficos: SVG/Canvas/WEBGL
+    - Websockets
+
+- Mobile
+  - PhoneGap
+  - Firefox OS
+
+- Server - Nodejs
+  - REAL TIME apps
+    - grafico torta dan de tuits
+    - tuiter fighter
+    - now.jit.su
+
+- Desktop
+  - Gnome3
+    * mostrar consolita
+  - Microsoft 8
+  - appjs
+    //* levantar un ejemplo

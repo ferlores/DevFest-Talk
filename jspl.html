@@ -1,0 +1,691 @@
+<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.======.\ ' J           
+                         "-.   "__"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..-=  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
+<!--
+    
+    So you'd like to know how to use impress.js?
+    
+    You've made the first, very important step - you're reading the source code.
+    And that's how impress.js presentations are built - with HTML and CSS code.
+    
+    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
+    And what is even more important, you need to be a designer, too, because there are no default
+    styles for impress.js presentations, there is no default or automatic layout for them.
+    
+    You need to design and build it by hand.
+    
+    So...
+    
+    Would you still like to know how to use impress.js?
+    
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <link href="css/jspl.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<!--
+    
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+    
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+    
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+    
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+    
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesing things
+    right around the corner of this tag ;)
+    
+-->
+<div id="impress">
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Javascript Attacks!!
+        The dumb toy-language is conquering the world. What we should do?!
+        ## Fernando Lores - @ferlores
+        ### Globant
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # The Rule of the Least Power 
+* Computer Science spent the last forty years making languages as powerful as possible.
+* The less powerful the language, the more you can do with the data stored in that language. 
+* If you write it in a simple declarative from, anyone can write a program to analyze it.
+
+        Tim Berners-Lee, W3C, Feb 2006,
+        <div class="notes">
+            Ejemplo: wheater data, RDF vs java applet
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+
+        # First Corollary 
+Any application that can be written in JavaScript, will eventually be written in JavaScript. 
+Jeff Atwood's Law, www.codinghorror.com, 2007 
+        
+        <div class="notes">
+            Popularidad: todos los programadores web usaron alguna vez js 
+            http://www.codinghorror.com/blog/2007/07/the-principle-of-least-power.html
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![Scares](./img/scares.jpg)
+    </div>
+    
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![Pain](./img/js-pain.jpg)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # History
+        * 1994 Java 1.0a - HotJava
+        * 1995 
+         * Sun - Netscape agreement: Netscape supports java 
+         * Netscape hires Brendan Eich to make a language for making Java more accessible to non-Java programmers
+        * 1996 Netscape sends JS to ECMA for standarization
+        * "JS had to 'look like Java' only less so, be Java’s dumb kid brother or boy-hostage sidekick. Plus, I had to be done in ten days or something worse than JS would have happened" - B. Eich - 2010
+        <div class="notes">
+             - He wanted to write a Scheme interpreter
+             - Sun want something easy to learn (looks like java)
+             - Has to be done in 10 days
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # DHTML
+        * Interactive and animated web sites HTML + JavaScript + CSS
+        * Manipulates the Document Object Model
+
+        * Main uses:
+         * Animate text and images in the document.
+         * Embed a ticker that automatically refreshes the content
+         * Use a form to capture user input and validate it without sending back to server
+         * Include rollover buttons or drop-down menus.
+         * Data binding, rendering csv into tables on the browser
+        <div class="notes"> 
+            - La vida sin AJAX
+            http://en.wikipedia.org/wiki/Dynamic_HTML
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # XMLHttpRequest - Ajax 
+* 1999 - Microsoft 
+ * Create interface IXMLHttpRequest for Outlook Web Access
+ * Access via ActiveX
+ * Shipped in IE5
+* 2000 - Mozilla
+ * Create nsIXMLHttpRequest for Gecko following the Microsoft interface 
+ * Create a Javascript wrapper called XMLHttpRequest
+ * Shipped in Gecko 0.6 (Dec 2000), completely funcional in Gecko 1.0 (Jun 2002)
+* 2004 - Safari 1.2
+* 2005 - Konqueror / Opera 
+* April 2006 - W3C, first working draft spec  
+        <div class="notes">
+            - XMLHttpRequest de-facto standart
+            - Solo despues de la standarizacion IE incluyo
+            - Guerra de los browsers
+            http://en.wikipedia.org/wiki/XMLHttpRequest
+            http://techtracer.com/2007/03/12/the-birth-of-ajax-an-amazing-story/
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![War](./img/browser-war.jpg)
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Google's Lead Role
+        * Gmail (Apr 2004 - restricted release)
+        * Google suggestions
+        * Google Personalize (Drag and Drop + Ajax) 
+        * Rating system in Orkut
+        * Google Maps (Feb 2005)
+        <div class="notes">
+            - Google no tuvo bueno ojo de lo que venia. Google forjo el futuro de web
+            - Experiencia en JWT: 5 cosas pedidas
+            - El cliente termina pidiendo esas cosas
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # The First Frameworks
+        * Google Web Toolkit: java into javascript (May 2006)
+        * The Yahoo! User Interface Library (YUI)
+        # The mediators
+        * Prototype
+         * First Release on Feb 2005 as part of the foundation support for ajax for Ruby on Rails
+         * It is used by 3.9% of all websites
+        * jQuery
+         * First Release on BarCamp NYC Jan 2006
+         * Used by over 55% of the 10,000 most visited websites
+        
+        * Mootools
+        * Dojo
+        <div class="notes">
+            - Frameworks goal: hide the "ugliness" of Javascript
+
+            - JS tuvo una infacia dificil, crecio en un barrio sin leyes, lleno de pandillas
+            - Paso la mayor parte del tiempo escuchando a sus padres (y tios) pelearse por como debia ser cuando sea grande
+            - El resultado es que JS quedo con algunos problemitas de comportamiento, dependiendo de con cual pandilla frecuentaba en ese momento podia decirte felizmente cosas en la consola, rehusarse a decirte algo o hasta explotar en tu cara sin decirte porque 
+            - Se crearon muchos nuevos y viejos lenguajes que compilan a Javascript, pero creo que estan todos equivocados. Lo unico que JS necesita es un poco de amor y ser tratado con un poco de respeto.
+            - Es cierto que a veces se hara pis en la cama pero te recompensara con un fabulo ecosistema de desarrollo si estas dispuesto a aprender sus maneras.
+
+            - Mediators goal: trying to abstract the different browser implementations
+            http://www.slideshare.net/jeresig/history-of-jquery
+            http://en.wikipedia.org/wiki/Prototype_JavaScript_Framework
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # HTML5
+* First Spec release on W3c Jan 2008
+* Semantic markup
+## New APIs
+ * LocalStorage
+ * Offline/Online events
+ * PushState
+ * WebSockets
+
+        ### ACCESS TO DEVICE HARDWARE
+* Webcam 
+* File API simple
+* Geolocalization
+* Drag n' Drop
+* Progress Bar
+* Graphics: Canvas/Webgl
+ * philoDb
+ * easel.js para trabajar con el canvas
+ * Trhee.js
+ * Pixastic
+        <div class="notes">
+            Standar para consumir APIs
+            * Webcam http://neave.github.com/face-detection/
+            * File API simple: http://html5demos.com/file-api-simple
+            * Geolocalization: http://html5demos.com/geo
+            * Drag anything http://html5demos.com/drag-anything
+            * Progress Bar: upload http://html5demos.com/dnd-upload
+            CartoDB - Google maps
+            * Pixastic: http://www.pixastic.com/
+            http://en.wikipedia.org/wiki/HTML5
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Front-End architectures
+        * First MVC concept in Smalltalk-80 (1979)
+        * MVC, MVP, MVVM, MV* variations
+        * Javascript Frameworks:
+         * Backbone.js
+         * JavascriptMVC/Canjs (may 2008)
+         * Ember.js
+         * Knockout.js
+         * Angular.js
+
+         * Sammy
+         * Batman
+         * Capuccino
+         * Asana Luna
+         * qooxdoo
+         * Spine
+         * ActiveJS
+         * EyeBalls
+         * Choco
+         * Agility
+         * ExtJs
+         * Jamal
+         * PureMVC
+         * TrimJunction
+         * corMVC
+        <div class="notes">
+          http://net.tutsplus.com/articles/web-roundups/20-javascript-frameworks-worth-checking-out/
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![Arnold](./img/meter.jpg)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        * Google V8
+         * First beta release on Sept 2008 for Windows
+
+         * Compile into machine code - no reiterpretation
+        ![Machine-code](./img/machine-code.jpg)
+         * Better Garbage collector: precise pointer objects, incremental garbage collector, quick round-trips
+        ![Garbage](./img/garbage.jpg)
+        
+         * Speed! - shootout.alioth.debian.org
+        ![Machine-code](./img/benchmarks.png)
+
+        <div class="notes">
+          Great comic http://en.wikipedia.org/wiki/Google_Chrome
+
+          WATCH THIS!!!
+          http://blip.tv/jsconf/jsconf2012-vyacheslav-egorov-6141593
+          
+          http://en.wikipedia.org/wiki/Google_Chrome
+          http://www.google.com/googlebooks/chrome/
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![King](./img/browser-king.jpg)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+      # Mobile
+      ## Apache Cordova - PhoneGap
+        ![PhoneGap](./img/cordova.png)
+      <div class="notes">
+        nativas vs web
+        wrapper multiplataforma
+        aplicaciones nativas en JS!
+        Api para acceder al hardware: acelerometro, contactos, geoposicion, etc
+      </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+      # Mobile
+      ## Firefox OS
+        ![firefoxOS](./img/firefoxOS.png)
+      <div class="notes">
+          http://rawkes.com/articles/there-is-something-magical-about-firefox-os
+      </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # in the far 2009 Ryan Dahl got an idea...
+        ![io-cost](./img/io-cost.png)
+        var result = db.query("select * from T");
+        
+        VS
+
+        db.query("select..", function (result) {
+        // use result
+        });
+        <div class="notes">
+            porque no fue asi antes:
+            cultural: rejected as too complex, 
+            infraestructura: C, C++, Java no tienen Fuciones anonimas
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Event loop - Single thread
+        ![event-loop](./img/event-loop.gif)
+        * No more thread deadlock
+        * More predictable app server memory usage
+        
+        * Like Nginx vs Apache
+        ![nginx](./img/nginx.png)
+
+        * hadles more concurrent requests
+        ![requests](./img/node-requests.png)
+        <div class="notes">
+            nginx v0.7.65
+            node v0.1.91
+            tornado v0.2 (python 2.6.4)
+            thin v1.2.7 (ruby 1.9.1-p376)
+        </div>  
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![Turtle](./img/node_turtle.png)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Why is Node so cool?
+        ## Easy and Fun to develop
+        var http = require('http');
+        http.createServer(function (req, res) {
+          res.writeHead(200, {'Content-Type': 'text/plain'});
+          res.end('Hello World\n');
+        }).listen(80, '127.0.0.1');
+        ## Easy to deploy
+        ![LOL](./img/lol-face.jpg)
+
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Why is Node so cool?
+        ![GitHub](./img/github.png)
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Why is Node so cool?
+        ![NPM](./img/npm.png)
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Plays nice with No-SQL databases
+        {
+          _id : ObjectId("4e77bb3b8a3e000000004f7a"),
+          when : Date("2011-09-19T02:10:11.3Z",
+          author : "alex",
+          title : "No Free Lunch",
+          text : "This is the text of the post.  It could be very long.",
+          tags : [ "business", "ramblings" ],
+          votes : 5,
+          voters : [ "jane", "joe", "spencer", "phyllis", "li" ],
+          comments : [
+            { who : "jane", when : Date("2011-09-19T04:00:10.112Z"),
+              comment : "I agree." },
+            { who : "meghan", when : Date("2011-09-20T14:36:06.958Z"),
+              comment : "You must be joking.  etc etc ..." }
+          ]
+        }
+        <div class="notes">
+            JSON formato de intercambio que reemplaza XML
+            Naturaleza dinamica de objectos - loose typing
+            Funciones Map-Reduce
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Real-time applications
+        * Websockets native support on nodejs
+         * for bi-directional, full-duplex communications channels over a single TCP connection
+        * socket.io
+         * full technologie in modern browsers
+         * many fallback: long pooling, flash, etc
+         * works even on IE6
+        <div clas="notes">
+        * mostrar now.jitsu.com
+        
+        * antes 15 minutos era una ventana de tiempo tolerable
+        * hoy 5 segundos es tarde
+        
+        * kickstarter:
+        * manera nativa/eficiente de implementarlos
+        </div>
+    </div>
+    
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Freemium cloud options:
+        * Joyent - nodejs bigest sponsor
+        * Heroku - first one in bringing node to the cloud
+        * Nodejitsu - first in allow the use of websockets
+        * Cloud9 - includes an online IDE for developing
+        * Engine Yard - add nodejs as an option
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Strong Comunity
+        Conferences about node and javascript 
+        * NodeConf
+        * NOde Dublin
+        * NodeFest
+        * NodeCamp.de
+        * Node Summit
+        * Keep it in Real Time
+        * Throne of JS
+        * JSconf / JSConf.eu / JSconf.ar
+        * LXJS - Portugal
+        * TacoConf
+        * Brazil.js
+        * BogotaConf
+        .........
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![Infografia](./img/infografia.jpg)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Linkedin mobile app
+        * “On the server side, our entire mobile software stack is completely built in Node,” said Prasad. “We use a ton of technologies at LinkedIn, but for the mobile server piece, it’s entirely Node-based… Node showed us huge performance gains compared to what we were using before, which was Ruby on Rails.”
+        * “One reason was scale. The second is, if you look at Node, the thing it’s best at doing is talking to other services. The mobile app has to talk to our platform API and database. We’re not doing massive data analytics. Node showed us huge performance gains compared to what we were using before”
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Microsoft Bing mobile site
+        * "Microsoft only adopts technologies from outside Redmond when they are established, and Node.js is no exception to this rule. It's only there because it's proven." - The guardian UK
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Wallmart mobile app
+        * On Walmart’s re-engineered Node-powered mobile app, all the front-end code gets executed on the back end.
+        * “We’ve been fascinated for a long time by end-to-end JavaScript,” 
+        * “a website that would be rich and dynamic… on devices that weren’t too powerful.”
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Yahoo! Cocktails: Mojito - Manhattan
+        * End-to-end javascript mobile framework
+        ![Mojito](./img/mojito.png)
+
+        # Mozilla - BrowserID
+        * A cross-platform sign-in technology based on nodejs
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        * Microsoft, Yahoo, LinkedIn, Wallmart, Ebay
+        * Voxer, Uber, Cloud9, Klout, Trello
+        * +180 companies and +160 websites listed in the Node.js wiki page
+        <div class="notes">
+           Wallmart: http://venturebeat.com/2012/01/24/why-walmart-is-using-node-js/
+           Microsoft: http://www.guardian.co.uk/technology/blog/2011/nov/09/programming-microsoft
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # Growing Open Positions in USA
+        ![Salaries](./img/salaries.png)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # www.indeed.com
+        ![Salaries](./img/salaries2.png)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        ![not-bad](./img/not-bad.png)
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+      # Can you see it?
+        ![everywhere](./img/everywhere.jpg)
+      
+      # And so What?
+        ![all-javascript](./img/all-javascript.jpg)
+        ![no](./img/no.jpg)
+    </div>
+
+<!-- ############################################################################## -->
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # How we can improve Globant Bussiness
+        ## Technial-side
+        * take advantage of the new technologies when it is possible (HTML5, Nodejs - high concurrence - big data)
+
+        * Being pioner in using new techonologies:
+         * Real Time applications (websockets)
+        * Deliver great consumer experience with the last flashy things
+         * HTML5
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        # How we can improve Globant Bussiness
+        ## Cover Front-End open positions
+        * Front-End developers Open position: xxxx 
+        * Revenue if we cover this: yyyyy
+
+        ## Organize the team structure
+        * One ring to rule them all: Teams with more and more Front-End devlopers
+        * Hybrid: Globant's white paper: conformacion de teams
+        * Everything indicates it will grow more and more
+        
+        ## Be prepeared for more
+        * Train people
+        * Create a research team
+        * Invest in the comunity
+          * Hackathons
+          * Sponsorships
+          * Mettings
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        I'm ready for the change
+        Globant: are we ready?
+    </div>    
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        EXTRAS: http://www.chromeexperiments.com/
+    </div>    
+
+    <div id="overview" class="step" data-x="-1000" data-y="-1500" data-scale="1">
+        http://dannorth.net/2011/12/19/the-rise-and-rise-of-javascript/
+    </div>
+</div>
+
+<!--
+    
+    Hint is not related to impress.js in any way.
+    
+    But it can show you how to use impress.js features in creative way.
+    
+    When the presentation step is shown (selected) its element gets the class of "active" and the body element
+    gets the class based on active step id `impress-on-ID` (where ID is the step's id)... It may not be
+    so clear because of all these "ids" in previous sentence, so for example when the first step (the one with
+    the id of `bored`) is active, body element gets a class of `impress-on-bored`.
+    
+    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation when
+    the first step of presentation is visible for a couple of seconds.
+    
+    ...
+    
+    And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
+    It's just a quick and dirty workaround to get different hint text for touch devices.
+    In a real world it should be at least placed in separate JS file ... and the touch content should be
+    probably just hidden somewhere in HTML - not hard-coded in the script.
+    
+    Just sayin' ;)
+    
+-->
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<!--
+    
+    Last, but not least.
+    
+    To make all described above really work, you need to include impress.js in the page.
+    I strongly encourage to minify it first.
+    
+    In here I just include full source of the script to make it more readable.
+    
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. Not only because it's a good practice, but also
+    because it should be done when the whole document is ready.
+    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
+    
+-->
+<script src="js/jquery.js"></script>
+<script src="js/marked.js"></script>
+<script src="js/markdown.js"></script>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
